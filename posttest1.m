@@ -1,0 +1,25 @@
+N=100;
+t=(1:100)/N;
+y1=5*sin(2*pi*10*t);
+y2=2*sin(2*pi*500*t);
+y3=1*sin(2*pi*1000*t);
+y4=y1+y2+y3;
+figure(1);
+subplot(4,1,1);
+plot(t,y1);
+subplot(4,1,2);
+plot(t,y2);
+subplot(4,1,3);
+plot(t,y3);
+subplot(4,1,4);
+plot(t,y4);
+
+figure(2);      
+hn= [0,-0.2,1.4,-0.2,0];        
+subplot(3,1,1);
+stem(t,y4);
+subplot(3,1,2);
+stem(t,hn);
+yn=conv(y4,hn);
+subplot(3,1,3);
+stem(t,yn);

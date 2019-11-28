@@ -1,0 +1,36 @@
+N=1024;
+f1=1;f2=10;
+FS=200;
+n=0:N-1;
+x=sin(2*pi*f1*n/FS);
+y=x+10*randn(1,N);
+x2=0.5*sin(2*pi*f2*n/FS);
+y2=x2+10*randn(1,N);
+
+subplot(6,1,1);
+plot(x);
+title("Pure Sinewave");
+grid;
+subplot(6,1,2);
+plot(y);
+title("y(n), Pure Sinewave + Noise");
+grid;
+Rxy=xcorr(x,y);
+subplot(6,1,3);
+plot(Rxy);
+title("Cross correlation Rxy");
+grid;
+
+subplot(6,1,4);
+plot(x2);
+title("Pure Sinewave 2");
+grid;
+subplot(6,1,5);
+plot(y2);
+title("y(n), Pure Sinewave + Noise ke 2");
+grid;
+Rxy2=xcorr(x2,y2);
+subplot(6,1,6);
+plot(Rxy2);
+title("Cross correlation Rxy2");
+grid;
